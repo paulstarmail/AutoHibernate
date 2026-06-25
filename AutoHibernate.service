@@ -1,0 +1,12 @@
+[Unit]
+Description=Battery Hibernate Daemon
+After=dbus.service basic.target
+
+[Service]
+Type=simple
+ExecStart=<Path to AutoHibernate.sh>
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
