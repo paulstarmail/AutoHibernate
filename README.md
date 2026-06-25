@@ -13,7 +13,10 @@ Procedure
 2.  sudo gedit /etc/default/grub
 3.  Go to and paste UUID on the given line, "GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=&lt;UUID of swap partition&gt;""
 4.  sudo update-grub
-5.  Append "&lt;username&gt; ALL=NOPASSWD: /bin/systemctl hibernate" to "/etc/sudoers" file.
+5.  Append "ALL ALL=NOPASSWD: /bin/systemctl hibernate" to "/etc/sudoers" file.
 6.  chmod a+x AutoHibernate.sh
-7.  Add AutoHibernate.sh to "Startup Applications".
-8.  Reboot the system.
+7.  sudo vim /etc/systemd/system/AutoHibernate.service
+8.  Paste the contents of AutoHibernate.service.
+9.  sudo systemctl daemon-reload
+10.  sudo systemctl enable --now AutoHibernate.service
+11.  sudo reboot
